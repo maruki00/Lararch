@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+/*
+ * @method static \App\Models\User create(array $attributes = [])
+ *
+ */
 class User extends Authenticatable implements UserEntity
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -45,16 +49,19 @@ class User extends Authenticatable implements UserEntity
 
 
 
-    public function getName(){
-
-    }
-    public function getEmail(){
-
-    }
-    public function getPassword(){
-
+    public function getName(): string
+    {
+        return $this->name;
     }
 
+    public function getEmail():EmailValueObjet
+    {
+        return new EmailValueObjet($this->email);
+    }
 
+    public function getPassword():PasswordValueObject
+    {
+        return new PasswordValueObject($this->password);
+    }
 
 }
