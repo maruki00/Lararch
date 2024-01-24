@@ -1,7 +1,8 @@
 <?php
 
 
-namespace App\Domain\Interfaces;
+namespace App\Domain\UseCases;
+use App\Domain\Interfaces\UserEntity;
 
 
 class CreateUserResponseModel
@@ -13,5 +14,6 @@ class CreateUserResponseModel
     public function getUser(): UserEntity
     {
         return $this->user;
-    }  
+    }
+      
 }
