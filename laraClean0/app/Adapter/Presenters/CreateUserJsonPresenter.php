@@ -5,28 +5,25 @@ namespace App\Adapter\Presenters;
 use App\Adapter\ViewModels\JsonViewModel;
 use App\Domain\Interfaces\ViewModel;
 use App\Domain\UseCases\CreateUserOutputPort;
-use App\Models\UserEntity;
-use JetBrains\PhpStorm\Pure;
+use App\Domain\UseCases\CreateUserResponseModel;
+
 
 class CreateUserJsonPresenter implements CreateUserOutputPort
 {
 
-    #[Pure] public final function userCreated(UserEntity $user): ViewModel
+    public final function userCreated(CreateUserResponseModel $responseModel): ViewModel
     {
-        return new JsonViewModel(['message' => 'Success', 'data'=>$user, 'status'=> 200], 200);
+        return new JsonViewModel(['message' => 'Success', 'data'=>$responseModel->getUser(), 'status'=> 200], 200);
     }
 
-    /**
-     * @param UserEntity $user
-     * @return ViewModel
-     */
-    public final function userExists(UserEntity $user): ViewModel
+
+    public final function userExists(CreateUserResponseModel $responseModel): ViewModel
     {
-        return new JsonViewModel(['message' => 'Success', 'data'=>null, 'status'=> 200], 204);
+        return new JsonViewModel(['message' => 'Success', 'data'=>null, 'status'=> 204], 204);
     }
 
-    public final function errorMakingUser(UserEntity $user): ViewModel
+    public final function errorMakingUser(CreateUserResponseModel $responseModel): ViewModel
     {
-        return new JsonViewModel(['message' => 'Error', 'data'=>null, 'status'=> 200], 400);
+        return new JsonViewModel(['message' => 'Error', 'data'=>null, 'status'=> 400], 400);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Adapter\ViewModels;
 
 use App\Domain\Interfaces\ViewModel;
+use Illuminate\Http\JsonResponse;
 
 class JsonViewModel implements ViewModel
 {
@@ -10,8 +11,8 @@ class JsonViewModel implements ViewModel
     {
     }
 
-    public final function getResponse()
+    public final function getResponse(): JsonResponse
     {
-        return request()->json($this->data, $this->status);
+        return \response()->json($this->data, $this->status);
     }
 }

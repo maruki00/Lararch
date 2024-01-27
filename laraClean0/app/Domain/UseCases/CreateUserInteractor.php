@@ -23,11 +23,11 @@ class CreateUserInteractor implements CreateUserInputPort
             'password'  => $model->getPassword()
         ]);
         if($this->repository->exists($user)){
-            return $this->outputPort->userExists($user);
+            return $this->outputPort->userExists(new CreateUserResponseModel($user));
         }
         if(!$this->repository->create($user)){
-            return $this->outputPort->errorMakingUser($user);
+            return $this->outputPort->errorMakingUser(new CreateUserResponseModel($user));
         }
-        return $this->outputPort->userCreated($user);
+        return $this->outputPort->userCreated(new CreateUserResponseModel($user));
     }
 }

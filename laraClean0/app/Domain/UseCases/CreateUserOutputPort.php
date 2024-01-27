@@ -3,7 +3,6 @@
 namespace App\Domain\UseCases;
 
 use App\Domain\Interfaces\ViewModel;
-use App\Models\UserEntity;
 
 interface CreateUserOutputPort
 {

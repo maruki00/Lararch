@@ -11,7 +11,7 @@ class CreateUserResponseModel
 
     }
 
-    public function getResponse(): UserEntity
+    public function getUser(): UserEntity
     {
         return $this->userEntity;
     }
