@@ -4,11 +4,10 @@ namespace App\Domain\UseCases;
 
 use App\Models\EmailValueObject;
 use App\Models\PasswordValueObject;
-use JetBrains\PhpStorm\Pure;
 
 class CreateUserRequestModel
 {
-    public function __construct(private readonly array $attributes)
+    public function __construct(public readonly array $attributes)
     {
     }
 
@@ -17,12 +16,12 @@ class CreateUserRequestModel
         return $this->attributes['name'];
     }
 
-    #[Pure] public function getEmail(): EmailValueObject
+    public function getEmail(): EmailValueObject
     {
         return new EmailValueObject($this->attributes['email'] ?? '');
     }
 
-    #[Pure] public function getPassword(): PasswordValueObject
+    public function getPassword(): PasswordValueObject
     {
         return new PasswordValueObject($this->attributes['password'] ?? '');
     }

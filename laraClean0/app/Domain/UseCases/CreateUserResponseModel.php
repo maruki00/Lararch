@@ -6,14 +6,11 @@ use App\Models\UserEntity;
 
 class CreateUserResponseModel
 {
-    public function __construct(private readonly UserEntity $userEntity)
+    public function __construct(private readonly UserEntity $user)
     {
-
     }
 
-    public function getUser(): UserEntity
-    {
-        return $this->userEntity;
+    public function getUser(){
+        return $this->user;
     }
-
 }

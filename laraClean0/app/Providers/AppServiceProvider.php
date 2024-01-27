@@ -19,10 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(IUserFactory::class,           UserFactory::class);
-        $this->app->bind(IUserRepository::class,        UserRepository::class);
-        $this->app->bind(CreateUserInputPort::class,    CreateUserInteractor::class);
-        $this->app->bind(CreateUserOutputPort::class,   CreateUserJsonPresenter ::class);
+
     }
 
     /**

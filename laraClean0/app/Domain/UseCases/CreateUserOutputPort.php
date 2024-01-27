@@ -6,7 +6,7 @@ use App\Domain\Interfaces\ViewModel;
 
 interface CreateUserOutputPort
 {
-    public function userCreated(CreateUserResponseModel $responseModel): ViewModel;
-    public function userExists(CreateUserResponseModel $responseModel): ViewModel;
-    public function errorMakingUser(CreateUserResponseModel $responseModel): ViewModel;
+    public function userCreated(CreateUserResponseModel $model): ViewModel;
+    public function userExists(CreateUserResponseModel $model): ViewModel;
+    public function userNotCreated(CreateUserResponseModel $model): ViewModel;
 }
