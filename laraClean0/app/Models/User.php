@@ -54,9 +54,9 @@ class User extends Authenticatable implements UserEntity
         return $this->name;
     }
 
-    public function getEmail():EmailValueObjet
+    public function getEmail():EmailValueObject
     {
-        return new EmailValueObjet($this->email);
+        return new EmailValueObject($this->email);
     }
 
     public function getPassword():PasswordValueObject
@@ -70,7 +70,7 @@ class User extends Authenticatable implements UserEntity
         $this->name = $name;
     }
 
-    public function setEmail(EmailValueObjet $email): void
+    public function setEmail(EmailValueObject $email): void
     {
         $this->email = (string)$email;
     }

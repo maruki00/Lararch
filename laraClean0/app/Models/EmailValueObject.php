@@ -4,7 +4,7 @@ namespace App\Models;
 
 
 
-class EmailValueObjet
+class EmailValueObject
 {
     private string $value;
     public function __construct(string $email)
