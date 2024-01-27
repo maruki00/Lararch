@@ -70,13 +70,13 @@ class User extends Authenticatable implements UserEntity
         $this->name = $name;
     }
 
-    public function setEmail(EmailValueObject $email): void
+    public function setEmail(string|EmailValueObject $email): void
     {
         $this->email = (string)$email;
     }
 
 
-    public function setPassword(PasswordValueObject $password): void
+    public function setPassword(string|PasswordValueObject $password): void
     {
         $this->password = (string)$password;
     }

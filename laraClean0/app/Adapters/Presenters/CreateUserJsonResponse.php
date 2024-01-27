@@ -12,7 +12,7 @@ class CreateUserJsonResponse implements CreateUserOutputPort
 
     public function userCreated(CreateUserResponseModel $model): ViewModel
     {
-        return new JsonViewModel($model->getUser(), 200);
+        return new JsonViewModel(['data'=>$model->getUser(), 'message'=> 'Success', 'statue' => 200], 200);
     }
 
     public function userExists(CreateUserResponseModel $model): ViewModel
